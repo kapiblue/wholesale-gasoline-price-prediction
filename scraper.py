@@ -33,4 +33,6 @@ df["Price"] = df["Price"].astype(float)
 df["Excise"] = df["Excise"].astype(float)
 df["Surcharge"] = df["Surcharge"].astype(float)
 
-df.to_csv("LOTOS.cvs")
+df = df.reset_index(drop=True)
+
+df.to_csv("LOTOS.csv", index=False)
