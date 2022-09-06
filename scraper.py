@@ -16,10 +16,10 @@ for row in table.tbody.find_all('tr'):
     columns = row.find_all('td')
 
     if (columns != []):
-        date = columns[0]
-        price = columns[1]
-        excise = columns[2]
-        surcharge = columns[3]
+        date = columns[0].text
+        price = float(columns[1].text.replace(',', '.').replace(" ", ""))
+        excise = float(columns[2].text.replace(',', '.').replace(" ", ""))
+        surcharge = float(columns[3].text.replace(',', '.').replace(" ", ""))
     
     rows.append({'Date' : date,
         'Price' : price, 
@@ -27,5 +27,10 @@ for row in table.tbody.find_all('tr'):
         'Surcharge' : surcharge})
 
 df = pd.concat([df, pd.DataFrame(rows)], axis=0, ignore_index=True)
+
+df["Date"] = pd.to_datetime(df["Date"])
+df["Price"] = df["Price"].astype(float)
+df["Excise"] = df["Excise"].astype(float)
+df["Surcharge"] = df["Surcharge"].astype(float)
 
 df.to_csv("LOTOS.cvs")
