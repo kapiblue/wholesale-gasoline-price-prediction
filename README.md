@@ -8,7 +8,7 @@ One model is bulit using an LSTM. Another one is ARIMA. The performance is compa
 
 * Python 3.10
 * pipenv
-* beautifulsoup
+* beautifulsoup4
 * keras
 * tensorflow
 
