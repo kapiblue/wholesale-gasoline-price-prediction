@@ -8,6 +8,8 @@ beautifulsoup4 = "*"
 statsmodels = "*"
 sklearn = "*"
 matplotlib = "*"
+keras = "*"
+tensorflow = "*"
 
 [dev-packages]
 ipykernel = "*"
